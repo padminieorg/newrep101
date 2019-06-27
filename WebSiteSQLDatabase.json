@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
+  "contentVersion": "1.1.0.0",
   "parameters": {
     "hostingPlanName": {
       "type": "string",
@@ -76,11 +76,82 @@
       "metadata": {
         "description": "Describes the performance level for Edition"
       }
+    },
+    "paddystorageType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+      ]
+    },
+    "PadminiStorage123Type": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+        
+      ]
+    },
+    "PadministorageType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+    
+      ]
+    },
+    "PadminieestorType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+       
+      ]
+    },
+    "padminiestorage1Type": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+       
+      ]
+    },
+    "stor1Type": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_ZRS",
+        "Standard_GRS",
+        "Standard_RAGRS"
+        
+      ]
     }
   },
   "variables": {
     "webSiteName": "[concat('webSite', uniqueString(resourceGroup().id))]",
-    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]"
+    "sqlserverName": "[concat('sqlserver', uniqueString(resourceGroup().id))]",
+    "paddystorageName": "[concat('paddystorage', uniqueString(resourceGroup().id))]",
+    "PadminiStorage123Name": "[concat('PadminiStorage123', uniqueString(resourceGroup().id))]",
+    "PadministorageName": "[concat('Padministorage', uniqueString(resourceGroup().id))]",
+    "PadminieestorName": "[concat('Padminieestor', uniqueString(resourceGroup().id))]",
+    "padminiestorage1Name": "[concat('padminiestorage1', uniqueString(resourceGroup().id))]",
+    "stor1Name": "[concat('stor1', uniqueString(resourceGroup().id))]"
   },
   "resources": [
     {
@@ -142,7 +213,8 @@
         "capacity": "[parameters('skuCapacity')]"
       },
       "properties": {
-        "name": "[parameters('hostingPlanName')]"
+        "name": "[parameters('hostingPlanName')]",
+        "numberOfWorkers": 1
       }
     },
     {
@@ -395,6 +467,21 @@
       "properties": {
         "ApplicationId": "[variables('webSiteName')]"
       }
+    },
+    {
+      "name": "[variables('stor1Name')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2016-01-01",
+      "sku": {
+        "name": "[parameters('stor1Type')]"
+      },
+      "dependsOn": [ ],
+      "tags": {
+        "displayName": "stor1"
+      },
+      "kind": "Storage"
     }
+    
   ]
 }

@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "hostingPlanName": {
-      "value": null
+      "value": "PaddysHostingPlan"
     },
     "administratorLogin": {
-      "value": null
+      "value": "Paddy123"
     },
     "databaseName": {
-      "value": null
+      "value": "PadminieeDB"
     }
   }
 }
