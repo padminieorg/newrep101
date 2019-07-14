@@ -30,5 +30,12 @@
     <Content Include="WebSiteSQLDatabase.json" />
     <Content Include="WebSiteSQLDatabase.parameters.json" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj">
+      <Targets>Build;Package</Targets>
+      <AdditionalProperties>PackageLocation=..\AzureResourceGroup2\$(ProjectReferencesOutputPath)\WebApplication1\package.zip</AdditionalProperties>
+      <IncludeFilePath>$(ProjectReferencesOutputPath)\WebApplication1\package.zip</IncludeFilePath>
+    </ProjectReference>
+  </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>

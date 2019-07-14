@@ -10,6 +10,21 @@
     },
     "databaseName": {
       "value": "PadminieeDB"
+    },
+    "administratorLoginPassword": {
+      "value": "Azure@2019"
+    },
+    "WebDeployPackageFolder": {
+      "value": ""
+    },
+    "WebDeployPackageFileName": {
+      "value": ""
+    },
+    "WebApplication1PackageFolder": {
+      "value": "WebApplication1"
+    },
+    "WebApplication1PackageFileName": {
+      "value": "package.zip"
     }
   }
 }
